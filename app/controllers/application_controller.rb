@@ -17,7 +17,8 @@ class ApplicationController < Sinatra::Base
   post '/articles' do
     article=Article.new({title: params[:title], content: params[:content]})
     article.save
-    redirect '/articles'
+    # binding.pry
+    redirect to '/articles'
   end
 
   get '/articles' do
@@ -44,8 +45,9 @@ class ApplicationController < Sinatra::Base
   end
 
   delete '/articles/:id/delete' do
-    @article=Article.find(params[:id].to_i)
-    @article.destroy
+    article=Article.find(params[:id].to_i)
+    @title=article.title
+    article.destroy
     erb :delete
   end
 

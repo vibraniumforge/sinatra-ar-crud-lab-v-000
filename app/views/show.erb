@@ -7,8 +7,8 @@
 <h3>Content: <%=@article.content%></h3>
 <br/>
 <form method="POST" action='/articles/<%=@article.id%>/delete'>
-  <input type="submit" name="submit" id="submit">
-  <input type="delete" name="delete" id="delete">
+  <input type="submit" name="delete" id="delete" value="DELETE">
+  <input type="hidden" name="_method" id="hidden" value="delete">
 </form>
 </body>
 </html>
