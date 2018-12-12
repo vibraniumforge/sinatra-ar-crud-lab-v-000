@@ -8,9 +8,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    redirect '/articles'
   end
 
   get '/articles/new' do
+    binding.pry
     erb :new
   end
 
@@ -26,7 +28,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/articles/:id' do
-    # binding.pry
     @article=Article.find(params[:id].to_i)
     erb :show
   end
