@@ -17,13 +17,18 @@ class ApplicationController < Sinatra::Base
   post '/articles' do
     article=Article.new({title: params[:title], content: params[:content]})
     article.save
-    # binding.pry
-    redirect to '/articles'
+    redirect "/articles/#{article.id}"
   end
 
   get '/articles' do
     @articles=Article.all
     erb :index
+  end
+
+  get '/articles/:id' do
+    # binding.pry
+    @article=Article.find(params[:id].to_i)
+    erb :show
   end
 
   get '/articles/:id/edit' do
@@ -36,12 +41,7 @@ class ApplicationController < Sinatra::Base
     @article.update(title: params[:title])
     @article.update(content: params[:content])
     @article.save
-    redirect to 'articles/'+article.id.to_s
-  end
-
-  get '/articles/:id' do
-    @article=Article.find(params[:id].to_i)
-    erb :show
+    redirect 'articles/'+article.id.to_s
   end
 
   delete '/articles/:id/delete' do
