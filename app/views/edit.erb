@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title>Sinatra CRUD Lab</title>
+  </head>
+  <body>
+    <h1>In edit.erb</h1>
+    <form method="POST" action='/articles/<%=article.id%>'>
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    </form>
+  </body>
+  </html>

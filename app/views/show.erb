@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Inside show.erb</h1>
+<h1>Individual article</h1>
+<h3>ID: <%=@post.id%></h3>
+<h3>Name: <%=@post.name%></h3>
+<h3>Content: <%=@post.content%></h3>
+<br/>
+<form method="POST" action='/articles/<%=@article.id%>/delete'>
+  <input type="submit" name="submit" id="submit">
+  <input type="delete" name="delete" id="delete">
+</form>
+</body>
+</html>
