@@ -1,0 +1,9 @@
+<h1>show.erb</h1>
+
+<%=@title%>
+<%=@content%>
+<br/>
+<form method="POST" action='/articles/<%=@article.id%>'>
+  <input type="submit" name="submit" id="submit">
+  <input type="delete" name="delete" id="delete">
+</form>
